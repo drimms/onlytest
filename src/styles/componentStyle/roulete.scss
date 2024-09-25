@@ -1,0 +1,88 @@
+@use '../var.scss' as var;
+
+.layout-round {
+    position: absolute;
+    width: var.$circle-diameter; 
+    height: var.$circle-diameter;
+    border-radius: 50%;
+    border: 1px solid rgba(66, 86, 122, 0.1);
+    z-index: 2;
+    top: 215px;
+    left: 455px;
+    font-family: var.$text-sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    $radius: var.$circle-diameter / 2;
+    $rotation-angle: 0deg;
+
+    @for $i from 0 through var.$num-points - 1 {
+        $angle: (($i - 1) * 360deg / var.$num-points);
+        $x: cos($angle) * $radius;
+        $y: sin($angle) * $radius;
+        
+        .point-#{$i} {
+            position: absolute;
+            width: var.$point-size;
+            height: var.$point-size;
+            background-color: rgba(66, 86, 122, 1);
+            border-radius: 50%;
+            opacity: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translate($x, $y);
+            transition: all border 0.3s ease, background-color 0.4s cubic-bezier(.66,.39,.21,.67);
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            
+            .number {
+                opacity: 0;
+            }
+                .label {
+                    position: absolute; 
+                    left: 70px; 
+                    //top: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 30px;
+                    text-align: left;                
+                    opacity: 0;           
+                    visibility: hidden;   
+                }
+            
+            &.active {
+                width: 56px; 
+                height: 56px;
+                border: 1px solid rgba(48, 62, 88, 0.5);
+                background-color: var.$color-background;
+                transition: all, border 10.3s ease, background-color 0.4s cubic-bezier(.66,.39,.21,.67);
+                z-index: 1;
+                .label, .number {
+                    opacity: 1;       
+                    visibility: visible; 
+                    transform: none;
+                }
+            }
+            &:hover {
+                width: 56px; 
+                height: 56px;
+                border: 1px solid rgba(48, 62, 88, 0.5);
+                background-color: var.$color-background;
+                transition: all, border 10.3s ease, background-color 0.4s cubic-bezier(.66,.39,.21,.67);
+                z-index: 1;
+                .number {
+                    opacity: 1;       
+                    visibility: visible; 
+                    transform: none;
+                }
+            }
+        }
+    }
+
+    @media(max-width: 768px) {
+        display: none;
+    }    
+}

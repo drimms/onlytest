@@ -1,0 +1,64 @@
+@use "../var.scss" as var;
+@use "../mix.scss" as *;
+
+.layout-block {
+    position: relative;    
+    display: flex;
+    flex-direction: column;
+    height: var.$desktop-height;
+    width: var.$desktop-width-block;
+    left: 320px;
+
+    @media(max-width: 768px) {
+        height: var.$mobil-height;
+        width: var.$mobil-width-block;
+        left: 0px;
+    }
+}
+
+.layout-line-v {
+    @include layout-line-styles;
+    left:  (var.$desktop-width-block)/2;
+
+    @media(max-width: 768px) {
+        display: none;
+    }
+}
+
+.layout-line-v1 {
+    @include layout-line-styles;
+    left: 0;
+
+    @media(max-width: 768px) {
+        display: none;
+    }
+}
+
+.layout-line-v2 {
+    @include layout-line-styles;
+    left:  var.$desktop-width-block;
+    
+    @media (max-width: 768px) { 
+        display: none; 
+    }
+}
+
+.layout-line-h {
+    border-top: 1px solid var.$color-layout;
+    opacity: 0.1;
+    width: var.$desktop-width-block;
+    top: 480px;
+    z-index: 0;
+    position: absolute;
+
+    @media(max-width: 768px) {
+        width: 280px;
+        height: 0px;
+        top: 293px;
+        left: 20px;
+        gap: 0px;
+        border: 1px 0px 0px 0px;
+        opacity: 0px;
+    }
+}
+

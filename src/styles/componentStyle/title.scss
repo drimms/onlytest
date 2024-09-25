@@ -1,0 +1,27 @@
+@use "../var.scss" as var;
+@use "../mix.scss" as *;
+
+.title {
+    @include title-base-styles;
+    font-size: 56px;
+    line-height: 67.2px;
+    top: 170px;
+    left: 400px;
+
+    @include title-media;
+}
+
+.title-line {
+    position: absolute; 
+    width: 0px; 
+    height: 120px; 
+    top: 177px; 
+    border: 5px solid transparent; 
+    border-image-source: linear-gradient(180deg, var.$color-blue -5%, var.$color-pink 85%); 
+    border-image-slice: 1;
+    border-width: 5px; 
+
+    @media (max-width: 768px) { 
+        display: none; 
+    }
+}

@@ -1,0 +1,32 @@
+@use "./mix.scss" as *;
+@use "./var.scss" as var;
+
+.app {
+    background-color: var.$color-background;
+
+    @media(max-width: 3000px) {
+        height: var.$desktop-height;
+        width: var.$desktop-width;
+    }
+
+    @media(max-width: 768px) {
+        height: var.$mobil-height;
+        width: var.$mobil-width;
+    }
+}
+
+@font-face {
+    font-family: PT Sans;
+    src: url('./fonts/PTSans-Regular.ttf') format("truetype");
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+@font-face {
+    font-family: Bebas Neue;
+    src: url('./fonts/BebasNeue-Regular.ttf') format("truetype");
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+

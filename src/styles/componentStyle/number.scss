@@ -1,0 +1,38 @@
+@use "../var.scss" as var;
+@use "../mix.scss" as *;
+
+.block {
+    font-family: var.$text-sans;
+    font-size: 200px;
+    font-weight: 700;
+    line-height: 160px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    position: fixed;
+    top: 400px;
+    left: 537px;
+    display: flex;
+    justify-content: space-between;
+    width: 973px;
+    height: 160px;
+
+    &-left {
+        color: var.$color-blue;
+    }
+
+    &-right {
+        color: var.$color-pink;
+    }
+
+    @media(max-width: 768px) {
+        width: 273px;
+        height: 73px;
+        top: 163px;
+        left: 20px;
+        font-family: var.$text-sans;
+        font-size: 56px;
+        line-height: 72.46px;
+        letter-spacing: -0.02em;
+        text-align: left;
+    }
+}
